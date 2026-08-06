@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PACWATCH — Oahu / Kauai</title>
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar__id">
+    <span class="bar__mark">PACWATCH</span>
+    <span class="bar__area">Oahu / Kauai</span>
+  </div>
+
+  <!-- The slot rack. Three of these are empty on purpose. -->
+  <div class="rack" id="rack" aria-label="Anomaly detectors">
+    <div class="rack__label">Anomalies detected</div>
+    <div class="rack__slots" id="rack-slots"></div>
+    <div class="rack__count"><span id="anomaly-count">0 / 4</span></div>
+  </div>
+
+  <div class="replay">
+    <button class="replay__btn" id="replay-play" aria-label="Play replay">Play</button>
+    <input class="replay__slider" id="replay-slider" type="range" min="0" max="120" value="0"
+           aria-label="Replay position">
+    <output class="replay__clock" id="replay-clock">04:00</output>
+    <select class="replay__speed" id="replay-speed" aria-label="Replay speed">
+      <option value="1">1&times;</option>
+      <option value="4" selected>4&times;</option>
+      <option value="16">16&times;</option>
+      <option value="60">60&times;</option>
+    </select>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="chart">
+    <div id="map"></div>
+    <aside class="detail" id="vessel-panel" hidden></aside>
+    <div class="chart__legend" id="chart-legend"></div>
+  </div>
+
+  <div class="rail">
+
+    <section class="panel panel--layers">
+      <h2 class="panel__head">
+        Layers
+        <span class="panel__hint" id="layer-count"></span>
+      </h2>
+      <div class="panel__body" id="layer-list"></div>
+      <p class="panel__foot">
+        Thirteen more are switched off in <code>js/layers.js</code>.
+      </p>
+    </section>
+
+    <section class="panel panel--findings">
+      <h2 class="panel__head">
+        Findings
+        <span class="panel__hint" id="finding-count">0</span>
+      </h2>
+      <div class="panel__body" id="finding-list"></div>
+    </section>
+
+    <section class="panel panel--chat">
+      <h2 class="panel__head">Watch assistant</h2>
+      <div class="panel__body chat" id="chat-log"></div>
+      <form class="composer" id="chat-form">
+        <input class="composer__input" id="chat-input" type="text" autocomplete="off"
+               placeholder="Ask about the traffic&hellip;" aria-label="Message the watch assistant">
+        <button class="composer__send" id="chat-send" type="submit">Send</button>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<script src="vendor/leaflet.js"></script>
+<script src="config.js"></script>
+<script src="data/geo-coast.js"></script>
+<script src="data/geo-bathy.js"></script>
+<script src="data/geo-zones.js"></script>
+<script src="data/geo-assets.js"></script>
+<script src="data/geo-cables.js"></script>
+<script src="data/geo-lanes.js"></script>
+<script src="data/env-tides.js"></script>
+<script src="data/env-buoys.js"></script>
+<script src="data/env-weather.js"></script>
+<script src="data/scenario.js"></script>
+<script src="js/geo.js"></script>
+<script src="js/detect.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/map.js"></script>
+<script src="js/layers.js"></script>
+<script src="js/replay.js"></script>
+<script src="js/markdown.js"></script>
+<script src="js/agent.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

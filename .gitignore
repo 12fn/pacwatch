@@ -1,0 +1,26 @@
+# Instructor-only material. Never goes in the public repo or the student zip.
+instructor/
+
+# Live credentials. The repo ships config.example.js instead.
+config.js
+
+# Build output
+dist/
+*.zip
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Verification screenshots
+.verify/
+.verify2/
+
+# Python bytecode
+__pycache__/
+*.pyc
+.verify*/
+pacwatch/
+pacwatch.before-*/

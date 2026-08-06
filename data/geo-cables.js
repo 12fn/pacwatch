@@ -1,0 +1,2 @@
+const GEO_CABLES = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"name":"Trans-Pacific Cable (representative)","synthetic":true},"geometry":{"type":"LineString","coordinates":[[-160.0,21.25],[-159.35,21.28],[-158.7,21.22],[-157.95,21.18],[-157.0,21.1]]}},{"type":"Feature","properties":{"name":"Hawaii Inter-Island Cable (representative)","synthetic":true},"geometry":{"type":"LineString","coordinates":[[-159.55,21.92],[-159.05,21.72],[-158.55,21.53],[-157.95,21.34],[-157.55,21.27]]}}]};
+if (typeof module !== 'undefined') module.exports = GEO_CABLES;

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PACWATCH — start here</title>
+<!-- Everything on this page is inline on purpose. If something else in the
+     folder is broken, this page still renders and still tells you what to do. -->
+<style>
+  :root {
+    --water: #050d18; --panel: #071220; --rule: #16293d;
+    --ink: #c9d6e2; --dim: #62788c; --faint: #3d4f61;
+    --sea: #7fd4c1; --caution: #e8368f;
+    --display: "Helvetica Neue Condensed Bold", "HelveticaNeue-CondensedBold",
+               "Arial Narrow", "Roboto Condensed", system-ui, sans-serif;
+    --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --data: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0 24px 80px;
+    background: var(--water); color: var(--ink);
+    font-family: var(--body); font-size: 15px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  header { padding: 64px 0 40px; border-bottom: 1px solid var(--rule); }
+  h1 {
+    font-family: var(--display); font-size: 54px; letter-spacing: 0.2em;
+    margin: 0 0 6px; font-weight: 700;
+  }
+  .tagline { font-family: var(--display); text-transform: uppercase;
+             letter-spacing: 0.24em; font-size: 11px; color: var(--faint); margin: 0; }
+  .lede { font-size: 17px; line-height: 1.65; margin: 30px 0 0; max-width: 62ch; }
+  .lede strong { color: var(--sea); font-weight: 600; }
+
+  .go {
+    display: inline-block; margin: 34px 0 8px; padding: 17px 34px;
+    background: var(--sea); color: var(--water); text-decoration: none;
+    font-family: var(--display); text-transform: uppercase;
+    letter-spacing: 0.18em; font-size: 14px; border-radius: 2px;
+  }
+  .go:hover { filter: brightness(1.12); }
+  .go-note { font-size: 13px; color: var(--faint); margin: 0; }
+
+  h2 {
+    font-family: var(--display); text-transform: uppercase; letter-spacing: 0.2em;
+    font-size: 12px; color: var(--dim); margin: 52px 0 4px; font-weight: 700;
+  }
+  h2 + p { margin-top: 0; color: var(--dim); font-size: 14px; max-width: 62ch; }
+
+  .levels { display: grid; gap: 10px; margin-top: 22px; }
+  .level {
+    display: grid; grid-template-columns: 54px 1fr; align-items: start;
+    gap: 18px; padding: 16px 18px; text-decoration: none; color: inherit;
+    background: var(--panel); border: 1px solid var(--rule);
+    border-left: 2px solid var(--rule); border-radius: 2px;
+  }
+  .level:hover { border-left-color: var(--sea); }
+  .level__n {
+    font-family: var(--data); font-size: 26px; color: var(--faint);
+    line-height: 1; padding-top: 2px;
+  }
+  .level:hover .level__n { color: var(--sea); }
+  .level__t {
+    font-family: var(--display); text-transform: uppercase; letter-spacing: 0.14em;
+    font-size: 13px; margin: 0 0 3px;
+  }
+  .level__d { margin: 0; font-size: 13.5px; color: var(--dim); }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+           gap: 10px; margin-top: 18px; }
+  .card { display: block; padding: 14px 16px; text-decoration: none; color: inherit;
+          background: var(--panel); border: 1px solid var(--rule); border-radius: 2px; }
+  .card:hover { border-color: var(--sea); }
+  .card__t { font-family: var(--display); text-transform: uppercase;
+             letter-spacing: 0.14em; font-size: 11px; margin: 0 0 4px; }
+  .card__d { margin: 0; font-size: 12.5px; color: var(--dim); }
+
+  .warn {
+    margin-top: 52px; padding: 18px 20px;
+    border: 1px solid var(--caution); border-left-width: 2px; border-radius: 2px;
+    font-size: 13.5px; color: var(--dim); max-width: 68ch;
+  }
+  .warn strong { color: var(--caution); }
+  code { font-family: var(--data); font-size: 13px; color: var(--sea); }
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--rule);
+           font-size: 12.5px; color: var(--faint); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>PACWATCH</h1>
+    <p class="tagline">Maritime awareness &middot; Oahu / Kauai</p>
+
+    <p class="lede">
+      Four hours of vessel traffic around Oahu and Kauai, on a chart, with an
+      AI assistant that can query the data rather than guess at it.
+      <strong>It already works.</strong> Open it, look around, then start
+      changing it.
+    </p>
+
+    <a class="go" href="index.html">Open PACWATCH</a>
+    <p class="go-note">
+      Nothing to install. Everything but the assistant works with the network unplugged.
+    </p>
+  </header>
+
+  <h2>Work down as far as you want</h2>
+  <p>
+    Every level stands on its own. Stopping at Level 1 still leaves you with
+    something worth showing somebody.
+  </p>
+  <p style="margin-top:10px;font-size:13px;color:var(--faint)">
+    These open as plain text in a browser. For the better read, open the
+    <code>docs/</code> folder in OpenCode and keep them beside the code you are
+    changing &mdash; each one ends with a prompt to copy across.
+  </p>
+
+  <div class="levels">
+    <a class="level" href="docs/01-LEVEL-0-make-it-yours.md">
+      <span class="level__n">0</span>
+      <span>
+        <p class="level__t">Make it yours</p>
+        <p class="level__d">Colours, title, vessel icons — and the assistant's standing
+          orders, which you change by editing plain English.</p>
+      </span>
+    </a>
+    <a class="level" href="docs/02-LEVEL-1-turn-on-layers.md">
+      <span class="level__n">1</span>
+      <span>
+        <p class="level__t">Turn on layers</p>
+        <p class="level__d">Thirteen more layers are already built and switched off:
+          depth, cables, restricted areas, weather, tides, buoys.</p>
+      </span>
+    </a>
+    <a class="level" href="docs/03-LEVEL-2-ask-the-agent.md">
+      <span class="level__n">2</span>
+      <span>
+        <p class="level__t">Talk to it, then teach it</p>
+        <p class="level__d">Interrogate the assistant, watch every tool call it makes,
+          then give it a new tool of your own.</p>
+      </span>
+    </a>
+    <a class="level" href="docs/04-LEVEL-3-write-a-detector.md">
+      <span class="level__n">3</span>
+      <span>
+        <p class="level__t">Write a detector</p>
+        <p class="level__d">Four vessels are behaving oddly. The app finds one.
+          Write the other three rules and get to 4 / 4.</p>
+      </span>
+    </a>
+    <a class="level" href="docs/05-LEVEL-4-generate-products.md">
+      <span class="level__n">4</span>
+      <span>
+        <p class="level__t">Generate products</p>
+        <p class="level__d">Turn findings into a watch report, a TacRep, or courses
+          of action. Pull live weather.</p>
+      </span>
+    </a>
+    <a class="level" href="docs/06-LEVEL-5-go-feral.md">
+      <span class="level__n">5</span>
+      <span>
+        <p class="level__t">Go feral</p>
+        <p class="level__d">A real backend, live feeds, your own scenario, your own
+          idea. Honest difficulty ratings included.</p>
+      </span>
+    </a>
+  </div>
+
+  <h2>Reference</h2>
+  <div class="cards">
+    <a class="card" href="docs/TROUBLESHOOTING.md">
+      <p class="card__t">Something broke</p>
+      <p class="card__d">Blank page, grey chart, chat errors, and how to reset.</p>
+    </a>
+    <a class="card" href="docs/HOW-THE-AGENT-WORKS.md">
+      <p class="card__t">How the agent works</p>
+      <p class="card__d">Tool calling, explained from zero. It is sixty lines.</p>
+    </a>
+    <a class="card" href="docs/DATA-DICTIONARY.md">
+      <p class="card__t">Data dictionary</p>
+      <p class="card__d">Every field in every data file, with units.</p>
+    </a>
+    <a class="card" href="docs/WHAT-THIS-CANNOT-TELL-YOU.md">
+      <p class="card__t">What this cannot tell you</p>
+      <p class="card__d">The limits of the system, and the API key in this folder.</p>
+    </a>
+  </div>
+
+  <div class="warn">
+    <strong>Before you start.</strong>
+    PACWATCH flags behaviour that a person should look at. It does not decide
+    what anyone intends, and it is built so that it cannot pretend to. Every
+    detection shows its evidence next to the innocent explanations for the same
+    behaviour. Ask the assistant whether a vessel is hostile and watch what it
+    does — that is the most portable thing in this folder.
+  </div>
+
+  <footer>
+    Real coastline, depths, tides and port positions. Synthetic vessels and one
+    fictional exercise area, both labelled as such in
+    <code>docs/DATA-DICTIONARY.md</code>. Nothing here is classified, controlled,
+    or operational.
+  </footer>
+
+</div>
+</body>
+</html>
